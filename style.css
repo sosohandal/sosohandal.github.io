@@ -1,0 +1,1064 @@
+/* ==========================================================================
+   Google Style Start Page Stylesheet (Clean, Modern & Google Aesthetics)
+   ========================================================================== */
+
+:root {
+  /* Google Signature Colors */
+  --g-blue: #4285F4;
+  --g-red: #EA4335;
+  --g-yellow: #FBBC05;
+  --g-green: #34A853;
+  --g-blue-hover: #3367D6;
+
+  /* Light Theme Variables */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8F9FA;
+  --bg-surface: #FFFFFF;
+  --bg-surface-hover: #F1F3F4;
+  --text-primary: #202124;
+  --text-secondary: #5F6368;
+  --text-muted: #80868B;
+  --border-color: #DADCE0;
+  --border-focus: #4285F4;
+  --shadow-sm: 0 1px 3px rgba(60, 64, 67, 0.08), 0 1px 2px rgba(60, 64, 67, 0.16);
+  --shadow-md: 0 4px 12px rgba(60, 64, 67, 0.12), 0 1px 3px rgba(60, 64, 67, 0.08);
+  --shadow-lg: 0 8px 24px rgba(60, 64, 67, 0.15), 0 2px 6px rgba(60, 64, 67, 0.10);
+  --search-bar-shadow: 0 1px 6px rgba(32, 33, 36, 0.18);
+  --search-bar-hover-shadow: 0 2px 8px rgba(32, 33, 36, 0.28);
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --badge-bg: #E8F0FE;
+  --badge-text: #1967D2;
+  --weather-card-border: #E8EAED;
+  --btn-bg: #F8F9FA;
+  --btn-text: #3C4043;
+  --btn-border: #F8F9FA;
+  --btn-hover-bg: #F1F3F4;
+  --btn-hover-border: #DADCE0;
+  --footer-bg: #F2F2F2;
+  --footer-border: #DADCE0;
+}
+
+/* Dark Theme Variables */
+body.dark-theme {
+  --bg-primary: #202124;
+  --bg-secondary: #171717;
+  --bg-surface: #303134;
+  --bg-surface-hover: #3C4043;
+  --text-primary: #E8EAED;
+  --text-secondary: #9AA0A6;
+  --text-muted: #80868B;
+  --border-color: #5F6368;
+  --border-focus: #8AB4F8;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.6);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.6), 0 2px 6px rgba(0, 0, 0, 0.5);
+  --search-bar-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+  --search-bar-hover-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  --card-bg: rgba(48, 49, 52, 0.85);
+  --badge-bg: #1A3A60;
+  --badge-text: #8AB4F8;
+  --weather-card-border: #3C4043;
+  --btn-bg: #303134;
+  --btn-text: #E8EAED;
+  --btn-border: #303134;
+  --btn-hover-bg: #3C4043;
+  --btn-hover-border: #5F6368;
+  --footer-bg: #171717;
+  --footer-border: #2B2C2F;
+}
+
+/* Reset & Base Setup */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Google Sans', 'Roboto', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* 은은한 배경 광택 효과 */
+.bg-glow {
+  position: fixed;
+  top: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(66, 133, 244, 0.08) 0%, rgba(234, 67, 53, 0.04) 30%, rgba(251, 188, 5, 0.03) 60%, transparent 80%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ==========================================================================
+   Header (Google Top Bar)
+   ========================================================================== */
+.google-header {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  font-size: 14px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* 서울디지털대학교 로고 링크 */
+.sdu-brand-link {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  text-decoration: none;
+  padding: 5px 12px 5px 6px;
+  border-radius: 22px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.sdu-brand-link:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+  border-color: #004b9e;
+  background-color: var(--bg-surface-hover);
+}
+
+.sdu-logo-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #002D72 0%, #0066CC 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 45, 114, 0.35);
+  flex-shrink: 0;
+}
+
+.sdu-icon-text {
+  color: #FFFFFF;
+  font-weight: 900;
+  font-size: 11px;
+  letter-spacing: -0.5px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.sdu-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.sdu-title {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+  letter-spacing: -0.3px;
+}
+
+.sdu-subtitle {
+  font-size: 8.5px;
+  font-weight: 600;
+  color: #0066CC;
+  letter-spacing: 0.2px;
+}
+
+body.dark-theme .sdu-subtitle {
+  color: #66B2FF;
+}
+
+.header-divider {
+  width: 1px;
+  height: 22px;
+  background-color: var(--border-color);
+}
+
+.digital-clock {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  background-color: var(--bg-surface-hover);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-family: 'Roboto', sans-serif;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.digital-clock:hover {
+  background-color: var(--badge-bg);
+}
+
+.clock-time {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text-primary);
+  letter-spacing: 0.5px;
+}
+
+.clock-date {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-link {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 13px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  transition: opacity 0.2s, background-color 0.2s;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+  opacity: 0.85;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: background-color 0.2s, transform 0.15s;
+}
+
+.icon-btn:hover {
+  background-color: var(--bg-surface-hover);
+  color: var(--text-primary);
+}
+
+.icon-btn:active {
+  transform: scale(0.92);
+}
+
+.profile-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4285F4, #34A853);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.profile-avatar:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-md);
+}
+
+/* ==========================================================================
+   Main Container
+   ========================================================================== */
+.main-container {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 20px 40px;
+  max-width: 960px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ==========================================================================
+   Weather Section (서울, 인천, 제주)
+   ========================================================================== */
+.weather-section {
+  width: 100%;
+  max-width: 720px;
+  margin-bottom: 24px;
+  background-color: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--weather-card-border);
+  border-radius: 20px;
+  padding: 18px 22px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.weather-section:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.weather-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.weather-title-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.weather-main-icon {
+  color: var(--g-blue);
+  font-size: 22px !important;
+}
+
+.weather-section-header h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.2px;
+}
+
+.weather-status-tag {
+  font-size: 11px;
+  color: var(--text-muted);
+  background: var(--bg-surface-hover);
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-left: 4px;
+}
+
+.weather-refresh-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.weather-refresh-btn:hover {
+  background-color: var(--bg-surface-hover);
+  color: var(--text-primary);
+}
+
+.weather-refresh-btn.rotating .material-symbols-outlined {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+.weather-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.weather-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--weather-card-border);
+  border-radius: 16px;
+  padding: 14px 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.weather-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--g-blue), var(--g-green));
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.weather-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--g-blue);
+}
+
+.weather-card:hover::before {
+  opacity: 1;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.city-badge {
+  font-size: 11px;
+  background-color: var(--badge-bg);
+  color: var(--badge-text);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+.city-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.card-body {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.weather-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background-color: var(--bg-surface-hover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--g-yellow);
+}
+
+.weather-icon-wrap .material-symbols-outlined {
+  font-size: 28px !important;
+}
+
+.weather-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.current-temp {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.temp-unit {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-left: 2px;
+}
+
+.weather-desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.card-footer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--border-color);
+  text-align: center;
+}
+
+.weather-detail-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-label {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.detail-val {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   Google Search Section
+   ========================================================================== */
+.search-section {
+  width: 100%;
+  max-width: 640px;
+  margin-top: 32px;
+  margin-bottom: 28px;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 48px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  padding: 0 16px;
+  box-shadow: var(--search-bar-shadow);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.search-bar:hover,
+.search-bar.focused {
+  background-color: var(--bg-surface);
+  box-shadow: var(--search-bar-hover-shadow);
+  border-color: transparent;
+}
+
+.search-icon {
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  margin-right: 12px;
+}
+
+.search-input {
+  flex: 1;
+  height: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-size: 16px;
+  font-family: inherit;
+}
+
+.search-input::placeholder {
+  color: var(--text-muted);
+}
+
+.search-clear-btn,
+.voice-search-btn,
+.lens-search-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--text-secondary);
+  transition: background-color 0.2s;
+  margin-left: 4px;
+}
+
+.search-clear-btn:hover,
+.voice-search-btn:hover,
+.lens-search-btn:hover {
+  background-color: var(--bg-surface-hover);
+}
+
+.search-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.google-btn {
+  background-color: var(--btn-bg);
+  border: 1px solid var(--btn-border);
+  color: var(--btn-text);
+  padding: 9px 18px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.google-btn:hover {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  background-color: var(--btn-hover-bg);
+  border-color: var(--btn-hover-border);
+  color: var(--text-primary);
+}
+
+.google-btn:active {
+  background-color: var(--bg-surface-hover);
+  border-color: var(--border-focus);
+}
+
+/* ==========================================================================
+   Shortcuts Section
+   ========================================================================== */
+.shortcuts-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+  width: 100%;
+}
+
+.shortcut-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  width: 78px;
+  padding: 8px 4px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.shortcut-item:hover {
+  background-color: var(--bg-surface-hover);
+  transform: translateY(-2px);
+}
+
+.shortcut-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s ease;
+}
+
+.shortcut-item:hover .shortcut-icon {
+  box-shadow: var(--shadow-md);
+}
+
+.shortcut-title {
+  font-size: 12px;
+  color: var(--text-primary);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 74px;
+}
+
+/* ==========================================================================
+   Quote Section (오늘의 명언)
+   ========================================================================== */
+.quote-section {
+  width: 100%;
+  max-width: 720px;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.quote-card {
+  position: relative;
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--weather-card-border);
+  border-radius: 20px;
+  padding: 20px 24px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.quote-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-color);
+}
+
+.quote-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.quote-category {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.quote-icon {
+  color: var(--g-yellow);
+  font-size: 20px !important;
+}
+
+.quote-badge {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.2px;
+}
+
+.quote-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.quote-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+
+.quote-btn:hover {
+  background-color: var(--bg-surface-hover);
+  color: var(--text-primary);
+}
+
+.quote-btn:active {
+  transform: scale(0.9);
+}
+
+.quote-content {
+  text-align: center;
+  padding: 8px 12px;
+  min-height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.quote-content.fade-out {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+.quote-text {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--text-primary);
+  word-break: keep-all;
+  font-style: italic;
+}
+
+.quote-author {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 400;
+}
+
+.quote-toast {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+  font-size: 12px;
+  padding: 6px 14px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  white-space: nowrap;
+  z-index: 20;
+}
+
+.quote-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ==========================================================================
+   Voice Modal Simulation
+   ========================================================================== */
+.voice-modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.voice-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.voice-modal-content {
+  background: var(--bg-surface);
+  padding: 36px 32px;
+  border-radius: 24px;
+  text-align: center;
+  max-width: 360px;
+  width: 90%;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.voice-modal-icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: #EA4335;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 4px 15px rgba(234, 67, 53, 0.4);
+}
+
+.voice-modal-icon .material-symbols-outlined {
+  font-size: 36px !important;
+}
+
+.voice-pulse-ring {
+  position: absolute;
+  top: 36px;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background-color: rgba(234, 67, 53, 0.3);
+  animation: pulse 1.5s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+  z-index: 1;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+.voice-status-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.voice-subtext {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.voice-close-btn {
+  background-color: var(--btn-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 8px 24px;
+  border-radius: 18px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.voice-close-btn:hover {
+  background-color: var(--bg-surface-hover);
+}
+
+/* ==========================================================================
+   Google Footer
+   ========================================================================== */
+.google-footer {
+  background-color: var(--footer-bg);
+  border-top: 1px solid var(--footer-border);
+  color: var(--text-secondary);
+  font-size: 13px;
+  margin-top: auto;
+  position: relative;
+  z-index: 5;
+}
+
+.footer-top {
+  padding: 12px 24px;
+  border-bottom: 1px solid var(--footer-border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.location-text {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.location-dot {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.location-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.footer-bottom {
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-left,
+.footer-right {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-bottom a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-bottom a:hover {
+  color: var(--text-primary);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 768px) {
+  .google-header {
+    padding: 10px 14px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .sdu-title {
+    font-size: 11.5px;
+  }
+
+  .sdu-subtitle {
+    display: none;
+  }
+  
+  .digital-clock {
+    padding: 4px 10px;
+    font-size: 12px;
+  }
+  
+  .weather-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .weather-card {
+    padding: 12px 14px;
+  }
+
+  .google-logo {
+    font-size: 60px;
+  }
+
+  .search-buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .footer-bottom {
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .footer-left,
+  .footer-right {
+    justify-content: center;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-left {
+    gap: 6px;
+  }
+
+  .sdu-text-group {
+    display: none;
+  }
+
+  .sdu-brand-link {
+    padding: 3px;
+    border-radius: 50%;
+  }
+
+  .google-logo {
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
+
+  .shortcuts-container {
+    gap: 10px;
+  }
+
+  .shortcut-item {
+    width: 64px;
+  }
+
+  .shortcut-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .search-buttons {
+    flex-wrap: wrap;
+  }
+}
